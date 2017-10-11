@@ -3,7 +3,7 @@ basket = {}
 loop do
   print "Enter a goods name: "
   name = gets.strip.downcase
-  if name == 'stop' then break end
+  break if name == 'stop'
   print "   Enter his price: "
   price = gets.to_f
   print "    Enter quantity: "
@@ -12,22 +12,16 @@ loop do
   if basket[name] == nil
     basket[name] = {}
   end
-  if basket[name][price] == nil
-    basket[name][price] = quantity
-  else
-    basket[name][price] += quantity
-  end
+  basket[name][:price] = price
+  basket[name][:quantity] = quantity
 end
 
+puts
 puts basket
 puts
 flat_basket = {}
 basket.each do |goods, hsh|
-  amount = 0
-  hsh.each do |price, quantity|
-    amount += price * quantity
-  end
-  flat_basket[goods] = amount
+  flat_basket[goods] = hsh[:price] * hsh[:quantity]
 end
 
 def print_basket(flat_hash)
