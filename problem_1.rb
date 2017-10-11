@@ -4,6 +4,6 @@ monthes = {december: 31, january: 31, february: 28,
   june: 30, july: 31, august: 31,
   september: 30, october: 31, november: 30}
 
-monthes.each do |sym, val|
-  puts sym if val == 30
+monthes.each do |month, days|
+  puts month if days == 30
 end

@@ -1,9 +1,7 @@
 
-vowels = ['a', 'e', 'i', 'o', 'u']
+vowels = %w( a e i o u )
 hsh = {}
-index = 0
-('a'..'z').each do |lttr|
-  index += 1
-  hsh[lttr] = index if vowels.include?(lttr)
+('a'..'z').each_with_index do |lttr, index|
+  hsh[lttr] = index + 1 if vowels.include? lttr
 end
 puts hsh

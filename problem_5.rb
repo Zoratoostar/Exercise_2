@@ -1,17 +1,7 @@
 
 print 'Enter a date in dd.mm.year format: '
 dt_str = gets.strip
-dt_arr = []
-index = 0
-while dt_arr.size < 3 do
-  foo = ''
-  while dt_str[index] != '.' && index < dt_str.length do
-    foo << dt_str[index]
-    index += 1
-  end
-  index += 1              #пропустим точку
-  dt_arr << foo
-end
+dt_arr = dt_str.split('.')
 
 day = dt_arr[0].to_i
 month = dt_arr[1].to_i
